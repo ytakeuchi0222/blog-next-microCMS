@@ -1,24 +1,33 @@
 {
-  "name": "lavish",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.13"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.13"
-  }
+    "name": "ytblog",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "cheerio": "^1.0.0",
+        "highlight.js": "^11.10.0",
+        "microcms-js-sdk": "^3.1.2",
+        "modern-css-reset": "^1.4.0",
+        "next": "14.2.13",
+        "react": "^18",
+        "react-dom": "^18"
+    },
+    "devDependencies": {
+        "@types/cheerio": "^0.22.35",
+        "@types/highlightjs": "^9.12.6",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "@types/react-syntax-highlighter": "^15.5.13",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.13",
+        "react-syntax-highlighter": "^15.5.0",
+        "sass": "^1.79.3",
+        "typescript": "^5"
+    }
 }
