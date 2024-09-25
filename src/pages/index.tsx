@@ -21,9 +21,11 @@ const Home = ({ blog, totalCount }) => {
 export default Home;
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-	const PER_PAGE: string = process.env.NEXT_PUBLIC_PER_PAGE
+	const PER_PAGE_STRING: string = process.env.NEXT_PUBLIC_PER_PAGE
 		? process.env.NEXT_PUBLIC_PER_PAGE
 		: '';
+	const PER_PAGE = Number(PER_PAGE_STRING);
+
 	const data = await client.get({ endpoint: 'blogs', queries: { offset: 0, limit: PER_PAGE } });
 	return {
 		props: {

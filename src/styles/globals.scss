@@ -1,40 +1,40 @@
 * {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック,
-        "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+	font-family: 'ヒラギノ角ゴ ProN W3', HiraKakuProN-W3, 游ゴシック, 'Yu Gothic', メイリオ, Meiryo,
+		Verdana, Helvetica, Arial, sans-serif;
 }
 .bg {
-    background-color: #f5f6f6;
-    padding-top: 20px;
-    padding-bottom: 20px;
+	background-color: #f5f6f6;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 /* コードブロック */
 pre {
-    overflow-x: auto;
-    margin-top: 16px;
-    margin-bottom: 0px;
-    border-radius: 5px;
+	overflow-x: auto;
+	margin-top: 16px;
+	margin-bottom: 0px;
+	border-radius: 5px;
 }
 
 /* コードブロック(ファイル名が入力ありの場合) */
 div[data-filename] {
-    margin-top: 16px;
+	margin-top: 16px;
 }
 
 div[data-filename] {
-    > span {
-        display: inline-block;
-        background-color: #404040;
-        color: #e0e0e0;
-        text-align: center;
-        padding: 3px 15px;
-        border-radius: 5px 5px 0px 0px;
-    }
+	> span {
+		display: inline-block;
+		background-color: #404040;
+		color: #e0e0e0;
+		text-align: center;
+		padding: 3px 15px;
+		border-radius: 5px 5px 0px 0px;
+	}
 }
 
 div[data-filename] {
-    > pre {
-        margin-top: 0px;
-        border-top-left-radius: 0px;
-    }
+	> pre {
+		margin-top: 0px;
+		border-top-left-radius: 0px;
+	}
 }
