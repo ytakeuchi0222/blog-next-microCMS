@@ -1,8 +1,6 @@
 import { client } from '@/libs/client';
 import React from 'react';
 import styles from '@/styles/Home.module.scss';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
 import { ArticleDetail } from '@/components/ArticleDetail';
 import { load } from 'cheerio';
 import hljs, { HighlightResult } from 'highlight.js';
