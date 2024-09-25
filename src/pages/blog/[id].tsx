@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ArticleDetail } from "@/components/ArticleDetail";
 import { load } from "cheerio";
-import hljs from "highlight.js";
+import hljs, { HighlightResult } from "highlight.js";
 //ハイライトのテーマ
 import "highlight.js/styles/hybrid.css";
 // import "highlight.js/styles/vs2015.css";
