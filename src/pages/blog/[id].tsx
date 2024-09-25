@@ -13,22 +13,12 @@ type PropsBlogId = {
     blog: { title: string; publishedAt: string; content: string };
 };
 const BlogId: React.FC<PropsBlogId> = ({ blog }) => {
-    console.log({ blog });
-
     return (
         <>
             <Header></Header>
             <div className={styles.bg}>
                 <main className={styles.main}>
                     <ArticleDetail blog={blog}></ArticleDetail>
-                    {/* <h1 className={styles.title}>{blog.title}</h1>
-                    <p className={styles.publishedAt}>{blog.publishedAt}</p>
-                    <div
-                        dangerouslySetInnerHTML={{
-                            __html: `${blog.content}`,
-                        }}
-                        className={styles.post}
-                    /> */}
                 </main>
             </div>
             <Footer></Footer>
@@ -65,7 +55,7 @@ export const getStaticProps = async (context) => {
     $("pre code").each((_, elm) => {
         const language = $(elm).attr("class") || "";
         let result: HighlightResult;
-
+        //let result: AutoHighlightResult;
         if (language == "") {
             // 言語が入力なしの場合、自動判定
             result = hljs.highlightAuto($(elm).text());
