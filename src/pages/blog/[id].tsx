@@ -15,13 +15,9 @@ type PropsBlogId = {
 const BlogId: React.FC<PropsBlogId> = ({ blog }) => {
 	return (
 		<>
-			<Header></Header>
-			<div className={styles.bg}>
-				<main className={styles.main}>
-					<ArticleDetail blog={blog}></ArticleDetail>
-				</main>
-			</div>
-			<Footer></Footer>
+			<main className={styles.main}>
+				<ArticleDetail blog={blog}></ArticleDetail>
+			</main>
 		</>
 	);
 };

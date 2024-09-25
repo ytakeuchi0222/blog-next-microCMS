@@ -6,15 +6,13 @@ export default function CategoryId({ blog }) {
 		return <div>ブログコンテンツがありません</div>;
 	}
 	return (
-		<div>
-			<ul>
-				{blog.map((blog) => (
-					<li key={blog.id}>
-						<Link href={`/blog/${blog.id}`}>{blog.title}</Link>
-					</li>
-				))}
-			</ul>
-		</div>
+		<ul>
+			{blog.map((blog) => (
+				<li key={blog.id}>
+					<Link href={`/blog/${blog.id}`}>{blog.title}</Link>
+				</li>
+			))}
+		</ul>
 	);
 }
 

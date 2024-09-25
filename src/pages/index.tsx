@@ -1,22 +1,16 @@
 import { client } from '@/libs/client';
 import styles from '@/styles/Home.module.scss';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
 import { ArticleList } from '@/components/ArticleList';
 import { Pagination } from '@/components/Pagination';
 import { CategoryList } from '@/components/CategoryList';
 const Home = ({ blog, totalCount, category }) => {
 	return (
 		<>
-			<Header />
-			<div className={styles.bg}>
-				<main className={styles.main}>
-					<ArticleList blog={blog}></ArticleList>
-				</main>
-				<CategoryList category={category} />
-				<Pagination totalCount={totalCount} />
-			</div>
-			<Footer />
+			<main className={styles.main}>
+				<ArticleList blog={blog}></ArticleList>
+			</main>
+			<CategoryList category={category} />
+			<Pagination totalCount={totalCount} />
 		</>
 	);
 };
