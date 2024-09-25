@@ -3,8 +3,7 @@ import styles from '@/styles/Home.module.scss';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ArticleList } from '@/components/ArticleList';
-import { Pagination } from '../components/Pagination';
-const Home = ({ blog, totalCount }) => {
+import { Pagination } from '@/components/Pagination';
 import { CategoryList } from '@/components/CategoryList';
 const Home = ({ blog, totalCount, category }) => {
 	return (
