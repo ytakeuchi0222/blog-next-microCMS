@@ -1,7 +1,9 @@
 import { client } from "@/libs/client";
 import React from "react";
 import styles from "@/styles/Home.module.scss";
-import { Header } from "@/pages/components/Header";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { ArticleDetail } from "@/components/ArticleDetail";
 import { load } from "cheerio";
 import hljs from "highlight.js";
 //ハイライトのテーマ
@@ -16,26 +18,20 @@ const BlogId: React.FC<PropsBlogId> = ({ blog }) => {
     return (
         <>
             <Header></Header>
-
-            {/* <main>
-                <h1>{blog.title}</h1>
-                <p>{blog.publishedAt}</p>
-                <div
-                    dangerouslySetInnerHTML={{
-                        __html: `${blog.content}`,
-                    }}
-                />
-            </main> */}
-            <main className={styles.main}>
-                <h1 className={styles.title}>{blog.title}</h1>
-                <p className={styles.publishedAt}>{blog.publishedAt}</p>
-                <div
-                    dangerouslySetInnerHTML={{
-                        __html: `${blog.content}`,
-                    }}
-                    className={styles.post}
-                />
-            </main>
+            <div className={styles.bg}>
+                <main className={styles.main}>
+                    <ArticleDetail blog={blog}></ArticleDetail>
+                    {/* <h1 className={styles.title}>{blog.title}</h1>
+                    <p className={styles.publishedAt}>{blog.publishedAt}</p>
+                    <div
+                        dangerouslySetInnerHTML={{
+                            __html: `${blog.content}`,
+                        }}
+                        className={styles.post}
+                    /> */}
+                </main>
+            </div>
+            <Footer></Footer>
         </>
     );
 };

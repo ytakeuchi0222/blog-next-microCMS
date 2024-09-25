@@ -1,23 +1,17 @@
-import Link from "next/link";
-import Image from "next/image";
 import { client } from "@/libs/client";
 import styles from "@/styles/Home.module.scss";
-import { Header } from "@/pages/components/Header";
-import { Footer } from "./components/Footer";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { ArticleList } from "@/components/ArticleList";
 const Home = ({ blog }) => {
     console.log(process.env.NEXT_PUBLIC_API_KEY);
-
     return (
         <>
             <Header></Header>
             <div className={styles.bg}>
-                <ul>
-                    {blog.map((blog) => (
-                        <li key={blog.id}>
-                            <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
-                        </li>
-                    ))}
-                </ul>
+                <main className={styles.main}>
+                    <ArticleList blog={blog}></ArticleList>
+                </main>
             </div>
             <Footer></Footer>
         </>
