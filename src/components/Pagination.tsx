@@ -7,11 +7,7 @@ export const Pagination = ({ totalCount }) => {
 	const range = (start, end) => [...Array(end - start + 1)].map((_, i) => start + i);
 	const [isShow, setIsShow] = useState(true);
 	useEffect(() => {
-		if (totalCount / PER_PAGE > 1) {
-			setIsShow(true);
-		} else {
-			setIsShow(false);
-		}
+		if (totalCount / PER_PAGE <= 1) setIsShow(false);
 		// eslint-disable-next-line
 	}, []);
 	if (!isShow) {
