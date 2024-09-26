@@ -23,11 +23,8 @@ export default function BlogPageId({ blog, totalCount }) {
 // 動的なページを作成
 export const getStaticPaths = async () => {
 	const repos = await client.get({ endpoint: 'blogs' });
-
 	const range = (start, end) => [...Array(end - start + 1)].map((_, i) => start + i);
-
 	const paths = range(1, Math.ceil(repos.totalCount / PER_PAGE)).map((repo) => `/blog/page/${repo}`);
-
 	return { paths, fallback: false };
 };
 

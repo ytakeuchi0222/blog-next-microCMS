@@ -1,0 +1,21 @@
+.article {
+	border-bottom: 1px solid #999;
+	height: 165px;
+	> a {
+		display: flex;
+		align-items: center;
+		height: 164px;
+		text-decoration: none;
+		> div > span {
+			//日付部分
+			font-size: 12px;
+		}
+	}
+	.title {
+		font-size: 20px;
+		font-weight: 600;
+	}
+}
+.article:last-child {
+	border-bottom: none;
+}

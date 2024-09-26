@@ -2,13 +2,14 @@ import Link from 'next/link';
 export const CategoryList = ({ category }) => {
 	return (
 		<>
-			<ul>
+			<dl>
+				<dt>カテゴリー</dt>
 				{category.map((category) => (
-					<li key={category.id}>
+					<dd key={category.id}>
 						<Link href={`/category/${category.id}`}>{category.name}</Link>
-					</li>
+					</dd>
 				))}
-			</ul>
+			</dl>
 		</>
 	);
 };

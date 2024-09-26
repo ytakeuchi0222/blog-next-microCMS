@@ -6,10 +6,14 @@ import { CategoryList } from '@/components/CategoryList';
 const Home = ({ blog, totalCount, category }) => {
 	return (
 		<>
-			<main className={styles.main}>
-				<ArticleList blog={blog}></ArticleList>
-			</main>
-			<CategoryList category={category} />
+			<div className={styles.mainArea}>
+				<main className={styles.main}>
+					<ArticleList blog={blog}></ArticleList>
+				</main>
+				<div className={styles.sideBar}>
+					<CategoryList category={category} />
+				</div>
+			</div>
 			<Pagination totalCount={totalCount} />
 		</>
 	);
