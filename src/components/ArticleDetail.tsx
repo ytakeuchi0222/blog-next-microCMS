@@ -1,5 +1,5 @@
 import styles from '@/styles/Home.module.scss';
-import FormatDate from '@/hooks/FormatDate';
+import FormatDate from '@/libs/FormatDate';
 export const ArticleDetail = ({ blog }) => {
 	const publishedAt = FormatDate(blog.publishedAt);
 	return (

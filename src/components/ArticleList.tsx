@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import FormatDate from '@/hooks/FormatDate';
+import FormatDate from '@/libs/FormatDate';
 export const ArticleList = ({ blog }) => {
 	return (
 		<>
