@@ -3,12 +3,23 @@ import styles from '@/styles/Home.module.scss';
 import { ArticleList } from '@/components/ArticleList';
 import { Pagination } from '@/components/Pagination';
 import { CategoryList } from '@/components/CategoryList';
+import { ArticleSearch } from '@/components/ArticleSearch';
+import { useSearch } from '@/hooks/useSearch';
+
 const Home = ({ blog, totalCount, category }) => {
+	const [searchResult, isSearch, keyword, setKeyword, { search }] = useSearch();
+	console.log(isSearch);
 	return (
 		<>
+			{/* 検索エリア */}
+			<input value={keyword} placeholder="キーワードを入力" onChange={(e) => setKeyword(e.target.value)} />
+			<button onClick={search} style={{ marginLeft: '4px' }}>
+				検索実行
+			</button>
 			<div className={styles.mainArea}>
 				<main className={styles.main}>
-					<ArticleList blog={blog}></ArticleList>
+					{/* 検索結果 */}
+					{isSearch ? <ArticleSearch searchResult={searchResult} /> : <ArticleList blog={blog}></ArticleList>}
 				</main>
 				<div className={styles.sideBar}>
 					<CategoryList category={category} />
@@ -19,6 +30,7 @@ const Home = ({ blog, totalCount, category }) => {
 	);
 };
 export default Home;
+
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
 	const PER_PAGE_STRING: string = process.env.NEXT_PUBLIC_PER_PAGE ? process.env.NEXT_PUBLIC_PER_PAGE : '';
@@ -27,6 +39,7 @@ export const getStaticProps = async () => {
 	const data = await client.get({ endpoint: 'blogs', queries: { offset: 0, limit: PER_PAGE } });
 	// カテゴリーコンテンツの取得
 	const categoryData = await client.get({ endpoint: 'categories' });
+
 	return {
 		props: {
 			blog: data.contents,
