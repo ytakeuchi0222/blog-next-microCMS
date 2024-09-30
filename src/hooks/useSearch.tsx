@@ -1,28 +1,15 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { useState } from 'react';
+import Router from 'next/router';
 
-type funcs = {
-	search: () => void;
-};
-type Search = [unknown, boolean, string, React.Dispatch<React.SetStateAction<string>>, funcs];
+type Search = [string, React.Dispatch<React.SetStateAction<string>>, { search: () => void }];
 
 export const useSearch = (): Search => {
-	const [searchResult, setSearchResult] = useState([]);
-	const [isSearch, setIsSearch] = useState(false);
 	const [keyword, setKeyword] = useState('');
 
-	const search = async () => {
-		// 検索APIにリクエストを送信
-		const res = await axios.get('/api/search', {
-			params: {
-				keyword,
-			},
-		});
-		//isSearchを更新
-		setIsSearch(true);
-		// 検索結果をセット
-		setSearchResult(res.data.contents);
+	const search = () => {
+		Router.push('/search/?q=' + keyword + '&page=1');
 	};
 
-	return [searchResult, isSearch, keyword, setKeyword, { search }];
+	return [keyword, setKeyword, { search }];
 };

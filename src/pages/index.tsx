@@ -3,23 +3,14 @@ import styles from '@/styles/Home.module.scss';
 import { ArticleList } from '@/components/ArticleList';
 import { Pagination } from '@/components/Pagination';
 import { CategoryList } from '@/components/CategoryList';
-import { ArticleSearch } from '@/components/ArticleSearch';
-import { useSearch } from '@/hooks/useSearch';
 
 const Home = ({ blog, totalCount, category }) => {
-	const [searchResult, isSearch, keyword, setKeyword, { search }] = useSearch();
-	console.log(isSearch);
 	return (
 		<>
-			{/* 検索エリア */}
-			<input value={keyword} placeholder="キーワードを入力" onChange={(e) => setKeyword(e.target.value)} />
-			<button onClick={search} style={{ marginLeft: '4px' }}>
-				検索実行
-			</button>
 			<div className={styles.mainArea}>
 				<main className={styles.main}>
 					{/* 検索結果 */}
-					{isSearch ? <ArticleSearch searchResult={searchResult} /> : <ArticleList blog={blog}></ArticleList>}
+					<ArticleList blog={blog}></ArticleList>
 				</main>
 				<div className={styles.sideBar}>
 					<CategoryList category={category} />
