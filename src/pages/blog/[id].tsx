@@ -31,7 +31,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
 	const id = context.params.id;
 	const data = await client.get({ endpoint: 'blogs', contentId: id });
-	console.log(data.content);
+
 	//ハイライト整形
 	const result = hightLight(data);
 	return {
