@@ -2,14 +2,21 @@
 import { useState } from 'react';
 import Router from 'next/router';
 
-type Search = [string, React.Dispatch<React.SetStateAction<string>>, { search: () => void }];
+type Search = [
+	string,
+	React.Dispatch<React.SetStateAction<string>>,
+	React.Dispatch<React.SetStateAction<boolean>>,
+	{ search: (event) => void },
+];
 
 export const useSearch = (): Search => {
 	const [keyword, setKeyword] = useState('');
-
-	const search = () => {
-		Router.push('/search/?q=' + keyword + '&page=1');
+	const [isComposing, setIsComposing] = useState(false);
+	const search = (event) => {
+		if (event.key === 'Enter' && !isComposing) {
+			Router.push('/search/?q=' + keyword + '&page=1');
+		}
 	};
 
-	return [keyword, setKeyword, { search }];
+	return [keyword, setKeyword, setIsComposing, { search }];
 };

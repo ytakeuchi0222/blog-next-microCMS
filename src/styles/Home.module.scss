@@ -1,66 +1,6 @@
-.bg {
-	background-color: #f5f6f6;
-	padding-top: 40px;
-	padding-bottom: 40px;
-}
-.mainArea {
-	display: flex;
-	align-items: flex-start;
-	margin: 24px auto 0px;
-	max-width: 1200px;
-	padding: 0px 16px;
-	width: 100%;
-	word-break: break-all;
-}
 .main {
-	width: 776px;
-	margin: 0 auto;
+	width: 700px;
+	margin: 20px auto;
+	border-radius: 10px;
 	background-color: #fff;
-	border-radius: 8px;
-	margin-top: 16px;
-	padding: 0 30px;
-}
-.sideBar {
-	width: 300px;
-	margin: 0 auto;
-	background-color: #fff;
-	border-radius: 8px;
-	margin-top: 16px;
-	padding: 30px;
-}
-
-.title {
-	margin-bottom: 20px;
-}
-
-.publishedAt {
-	margin-bottom: 40px;
-}
-
-.post {
-	& > h1 {
-		font-size: 30px;
-		font-weight: bold;
-		margin: 40px 0 20px;
-		background-color: #eee;
-		padding: 10px 20px;
-		border-radius: 5px;
-	}
-
-	& > h2 {
-		font-size: 24px;
-		font-weight: bold;
-		margin: 40px 0 16px;
-		border-bottom: 1px solid #ddd;
-	}
-
-	& > p {
-		line-height: 1.8;
-		letter-spacing: 0.2px;
-	}
-
-	& > ol {
-		list-style-type: decimal;
-		list-style-position: inside;
-	}
 }

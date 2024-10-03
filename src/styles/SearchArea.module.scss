@@ -1,0 +1,26 @@
+.searchArea {
+	width: 232px;
+
+	position: relative; /* 基準値とする */
+	z-index: 1;
+	&::after {
+		content: ''; /* 疑似要素に必須 */
+		width: 16px; /* アイコンの横幅 */
+		height: 16px; /* アイコンの高さ */
+		background-image: url(../asets/icon.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: block; /* 高さを持たせるためにインラインブロック要素にする */
+		position: absolute; /* 相対位置に指定 */
+		top: 8px; /* アイコンの位置。微調整してね */
+		left: 9px; /* アイコンの位置。微調整してね */
+		z-index: 2;
+		opacity: 0.7;
+	}
+}
+
+.searchArea input {
+	padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+	border-radius: 20px;
+	border: 1px solid #999;
+}

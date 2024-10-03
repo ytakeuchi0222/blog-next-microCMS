@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 export const usePagination = (totalCount: number): [(start: number, end: number) => number[], boolean] => {
 	const PER_PAGE_STRING: string = process.env.NEXT_PUBLIC_PER_PAGE ? process.env.NEXT_PUBLIC_PER_PAGE : '';
 	const PER_PAGE = Number(PER_PAGE_STRING);
+
 	const [check, setCheck] = useState(totalCount / PER_PAGE);
 	const [isShow, setIsShow] = useState(true);
 
@@ -20,6 +21,6 @@ export const usePagination = (totalCount: number): [(start: number, end: number)
 		}
 	}, [check]);
 	useEffect(() => {}, [isShow]);
-	console.log(range);
+
 	return [range, isShow];
 };

@@ -1,6 +1,7 @@
 import { client } from '@/libs/client';
 import { Pagination } from '@/components/Pagination';
-import Link from 'next/link';
+import styles from '@/styles/Home.module.scss';
+import { ArticleList } from '@/components/ArticleList';
 const PER_PAGE_STRING: string = process.env.NEXT_PUBLIC_PER_PAGE ? process.env.NEXT_PUBLIC_PER_PAGE : '';
 const PER_PAGE = Number(PER_PAGE_STRING);
 
@@ -8,13 +9,9 @@ const PER_PAGE = Number(PER_PAGE_STRING);
 export default function BlogPageId({ blog, totalCount }) {
 	return (
 		<>
-			<ul>
-				{blog.map((blog) => (
-					<li key={blog.id}>
-						<Link href={`/blog/${blog.id}`}>{blog.title}</Link>
-					</li>
-				))}
-			</ul>
+			<main className={styles.main}>
+				<ArticleList blog={blog}></ArticleList>
+			</main>
 			<Pagination totalCount={totalCount} />
 		</>
 	);
@@ -36,11 +33,12 @@ export const getStaticProps = async (context) => {
 		endpoint: 'blogs',
 		queries: { offset: (id - 1) * PER_PAGE, limit: PER_PAGE },
 	});
-
+	const categoryData = await client.get({ endpoint: 'categories' });
 	return {
 		props: {
 			blog: data.contents,
 			totalCount: data.totalCount,
+			category: categoryData.contents,
 		},
 	};
 };

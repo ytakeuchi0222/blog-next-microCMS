@@ -1,10 +1,11 @@
 import { client } from '@/libs/client';
-import Link from 'next/link';
-import FormatDate from '@/libs/FormatDate';
-import styles from '@/styles/ArticleList.module.scss';
-
+// import Link from 'next/link';
+// import FormatDate from '@/libs/FormatDate';
+import { ArticleList } from '@/components/ArticleList';
+import styles from '@/styles/Home.module.scss';
 // import { useSearchParams } from 'next/navigation';
 import { PaginationSearch } from '@/components/PaginationSearch';
+import { Categorytitle } from '@/components/CategoryTitle';
 const PER_PAGE_STRING: string = process.env.NEXT_PUBLIC_PER_PAGE ? process.env.NEXT_PUBLIC_PER_PAGE : '';
 const PER_PAGE = Number(PER_PAGE_STRING);
 export default function SearchId({ blog, totalCount, keyword }) {
@@ -18,18 +19,9 @@ export default function SearchId({ blog, totalCount, keyword }) {
 	return (
 		<>
 			<div className={styles.mainArea}>
+				<Categorytitle type="― SEARCH WORD ―" keyword={keyword} totalCount={totalCount} />
 				<main className={styles.main}>
-					‘{keyword} で検索した結果：{totalCount} 件{/* {q} */}
-					{blog.map((blog) => (
-						<article key={blog.id} className={styles.article}>
-							<Link href={`/blog/${blog.id}`}>
-								<div>
-									<span className={styles.date}>{FormatDate(blog.publishedAt)}</span>
-									<p className={styles.title}>「{blog.title}」</p>
-								</div>
-							</Link>
-						</article>
-					))}
+					<ArticleList blog={blog}></ArticleList>
 				</main>
 				<div className={styles.sideBar}>{/* <CategoryList category={category} /> */}</div>
 			</div>
@@ -53,20 +45,21 @@ export default function SearchId({ blog, totalCount, keyword }) {
 // 	};
 // };
 export const getServerSideProps = async (context) => {
-	console.log(context.query.q);
+	// console.log(context);
+	// console.log(context.query.q);
 	const keyword = context.query.q;
 	const page = context.query.page;
 	const data = await client.get({
 		endpoint: 'blogs',
 		queries: { q: keyword, offset: (page - 1) * PER_PAGE, limit: PER_PAGE },
 	});
-	// console.log(data);
-
+	const categoryData = await client.get({ endpoint: 'categories' });
 	return {
 		props: {
 			blog: data.contents,
 			totalCount: data.totalCount,
 			keyword: keyword,
+			category: categoryData.contents,
 		},
 	};
 };

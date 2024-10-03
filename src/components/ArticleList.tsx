@@ -2,6 +2,13 @@ import Link from 'next/link';
 import FormatDate from '@/libs/FormatDate';
 import styles from '@/styles/ArticleList.module.scss';
 export const ArticleList = ({ blog }) => {
+	if (blog.length === 0) {
+		return (
+			<>
+				<div>ブログコンテンツがありません</div>
+			</>
+		);
+	}
 	return (
 		<>
 			{blog.map((blog) => (

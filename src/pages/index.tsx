@@ -2,9 +2,8 @@ import { client } from '@/libs/client';
 import styles from '@/styles/Home.module.scss';
 import { ArticleList } from '@/components/ArticleList';
 import { Pagination } from '@/components/Pagination';
-import { CategoryList } from '@/components/CategoryList';
 
-const Home = ({ blog, totalCount, category }) => {
+const Home = ({ blog, totalCount }) => {
 	return (
 		<>
 			<div className={styles.mainArea}>
@@ -12,9 +11,6 @@ const Home = ({ blog, totalCount, category }) => {
 					{/* 検索結果 */}
 					<ArticleList blog={blog}></ArticleList>
 				</main>
-				<div className={styles.sideBar}>
-					<CategoryList category={category} />
-				</div>
 			</div>
 			<Pagination totalCount={totalCount} />
 		</>

@@ -1,0 +1,28 @@
+//ページャー
+.pagenation {
+	display: flex;
+	list-style-type: none;
+	align-items: center;
+	justify-content: center;
+	li {
+		a {
+			display: block;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			margin-right: 10px;
+			border-radius: 10px;
+			border: 1px solid #666;
+			text-decoration: none;
+			color: #666;
+			&.active {
+				background-color: #444;
+				color: #fff;
+			}
+		}
+	}
+	li:last-child {
+		margin-right: 0;
+	}
+}

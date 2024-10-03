@@ -34,9 +34,11 @@ export const getStaticProps = async (context) => {
 
 	//ハイライト整形
 	const result = hightLight(data);
+	const categoryData = await client.get({ endpoint: 'categories' });
 	return {
 		props: {
 			blog: result,
+			category: categoryData.contents,
 			// bodyをコードハイライト実装ずみのものに入れ替え
 			// blog: { ...data, body: $.html() },
 		},
