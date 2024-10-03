@@ -1,6 +1,6 @@
 import { client } from '@/libs/client';
 // import Link from 'next/link';
-// import FormatDate from '@/libs/FormatDate';
+// import formatDate from '@/libs/formatDate';
 import { ArticleList } from '@/components/ArticleList';
 import styles from '@/styles/Home.module.scss';
 // import { useSearchParams } from 'next/navigation';
