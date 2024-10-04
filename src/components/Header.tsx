@@ -1,5 +1,4 @@
 import styles from '@/styles/Header.module.scss';
-import Image from 'next/image';
 import Link from 'next/link';
 import { SearchArea } from '@/components/SearchArea';
 import { CategoryList } from '@/components/CategoryList';
