@@ -1,19 +1,32 @@
 .headerArea {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	.name {
-		font-size: 30px;
-		font-weight: bold;
+	position: fixed;
+	top: 0;
+	background: #333;
+	width: 100%;
+	.title {
+		a {
+			display: block;
+			width: 190px;
+			height: 30px;
+			/* background-color: #9abeda; */
+			border-radius: 10px;
+			color: #fff;
+			text-decoration: none;
+			text-align: center;
+			line-height: 30px;
+			font-weight: 600;
+		}
 	}
-	.job {
-		font-size: 12px;
-		color: #888;
+	.rightArea {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
-}
-.menu {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 700px;
+		margin: 10px auto;
+	}
 }

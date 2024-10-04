@@ -9,9 +9,11 @@ const PER_PAGE = Number(PER_PAGE_STRING);
 export default function BlogPageId({ blog, totalCount }) {
 	return (
 		<>
-			<main className={styles.main}>
-				<ArticleList blog={blog}></ArticleList>
-			</main>
+			<div className={styles.mainArea}>
+				<main className={styles.main}>
+					<ArticleList blog={blog}></ArticleList>
+				</main>
+			</div>
 			<Pagination totalCount={totalCount} />
 		</>
 	);
