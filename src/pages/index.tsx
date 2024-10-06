@@ -18,14 +18,24 @@ const Home = ({ blog, totalCount }) => {
 };
 export default Home;
 
+// 環境変数の取得と変換
+const getPerPage = (): number => {
+	const PER_PAGE_STRING: string = process.env.NEXT_PUBLIC_PER_PAGE ? process.env.NEXT_PUBLIC_PER_PAGE : '';
+	return Number(PER_PAGE_STRING);
+};
+
+// データ取得ロジック
+const fetchData = async (endpoint: string, queries: object) => {
+	return await client.get({ endpoint, queries });
+};
+
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-	const PER_PAGE_STRING: string = process.env.NEXT_PUBLIC_PER_PAGE ? process.env.NEXT_PUBLIC_PER_PAGE : '';
-	const PER_PAGE = Number(PER_PAGE_STRING);
+	const PER_PAGE = getPerPage();
 
-	const data = await client.get({ endpoint: 'blogs', queries: { offset: 0, limit: PER_PAGE } });
+	const data = await fetchData('blogs', { offset: 0, limit: PER_PAGE });
 	// カテゴリーコンテンツの取得
-	const categoryData = await client.get({ endpoint: 'categories' });
+	const categoryData = await fetchData('categories', {});
 
 	return {
 		props: {
